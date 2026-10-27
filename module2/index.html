@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusicApp — Trang chủ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body
+    class="h-screen overflow-hidden bg-black font-['Inter',sans-serif] text-white"
+  >
+    <div
+      class="grid h-full grid-cols-1 grid-rows-[auto_1fr_auto] gap-2 p-2 md:grid-cols-[320px_1fr]"
+    >
+      <!-- ================= TOP BAR ================= -->
+      <header class="col-span-full flex items-center gap-2 px-1 py-1">
+        <!-- Trái: logo -->
+        <a
+          href="#"
+          class="flex shrink-0 items-center gap-2"
+          aria-label="MusicApp"
+        >
+          <img
+            src="./src/assets/favicon.png"
+            alt=""
+            class="h-9 w-9 object-contain brightness-0 invert"
+          />
+        </a>
+
+        <div class="flex min-w-0 flex-1 items-center justify-start gap-2">
+          <a
+            href="#"
+            aria-label="Trang chủ"
+            class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#1f1f1f] text-white transition hover:scale-105 hover:bg-[#2a2a2a]"
+          >
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3 3 10v11h6v-6h6v6h6V10l-9-7z" />
+            </svg>
+          </a>
+
+          <div class="group relative w-full max-w-[480px]">
+            <svg
+              class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#b3b3b3] transition group-focus-within:text-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+            <input
+              id="search"
+              type="search"
+              placeholder="What do you want to play?"
+              class="h-12 w-full rounded-full bg-[#1f1f1f] pl-12 pr-4 text-sl text-white outline-none ring-white placeholder:text-[#b3b3b3] hover:bg-[#2a2a2a] focus:ring-2"
+            />
+          </div>
+        </div>
+
+        <!-- Phải: liên kết + đăng ký / đăng nhập (cùng một hàng) -->
+        <nav
+          class="flex shrink-0 items-center whitespace-nowrap text-sm font-bold text-[#b3b3b3]"
+        >
+          <a
+            href="#"
+            class="hidden px-3 text-base transition hover:scale-105 hover:text-white xl:block"
+            >Premium</a
+          >
+          <a
+            href="#"
+            class="hidden px-3 text-base transition hover:scale-105 hover:text-white xl:block"
+            >Support</a
+          >
+          <a
+            href="#"
+            class="hidden px-3 text-base transition hover:scale-105 hover:text-white xl:block"
+            >Dowload</a
+          >
+
+          <span class="mx-3 hidden h-6 w-px bg-white xl:block"></span>
+
+          <a
+            href="#"
+            class="hidden items-center gap-2 px-3 transition hover:scale-105 hover:text-white lg:flex"
+          >
+            <svg
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+            </svg>
+            InstallApp
+          </a>
+          <a
+            href="/register.html"
+            class="px-3 transition hover:scale-105 hover:text-white"
+            >Sign up</a
+          >
+          <a
+            href="/login.html"
+            class="ml-2 rounded-full bg-white px-8 py-3 text-black transition hover:scale-105"
+            >Sign in</a
+          >
+        </nav>
+      </header>
+
+      <!-- ================= SIDEBAR (Thư viện) ================= -->
+      <aside class="hidden min-h-0 flex-col md:flex">
+        <section class="flex min-h-0 flex-1 flex-col rounded-lg bg-[#121212]">
+          <div class="flex items-center justify-between px-5 py-4">
+            <h2 class="flex items-center gap-3 font-bold text-[#b3b3b3]">
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M4 5v14M9 5v14M14 7l5 12" />
+              </svg>
+              Your Library
+            </h2>
+            <button
+              class="grid h-8 w-8 place-items-center rounded-full text-[#b3b3b3] transition hover:bg-[#1a1a1a] hover:text-white"
+              aria-label="Tạo playlist"
+            >
+              <svg
+                class="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex gap-2 px-4 pb-3 text-sm">
+            <button
+              class="rounded-full bg-[#2a2a2a] px-3 py-1.5 transition hover:bg-[#333]"
+            >
+              Playlist
+            </button>
+            <button
+              class="rounded-full bg-[#2a2a2a] px-3 py-1.5 transition hover:bg-[#333]"
+            >
+              Nghệ sĩ
+            </button>
+            <button
+              class="rounded-full bg-[#2a2a2a] px-3 py-1.5 transition hover:bg-[#333]"
+            >
+              Album
+            </button>
+          </div>
+
+          <ul
+            class="min-h-0 flex-1 space-y-1 overflow-y-auto px-2 pb-2 [scrollbar-width:thin] [scrollbar-color:#444_transparent]"
+          >
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md p-2 transition hover:bg-[#1a1a1a]"
+              >
+                <img
+                  class="h-12 w-12 rounded object-cover"
+                  src="https://picsum.photos/seed/lib1/96/96"
+                  alt=""
+                />
+                <div class="min-w-0">
+                  <p class="truncate font-medium">Bài hát đã thích</p>
+                  <p class="truncate text-sm text-[#b3b3b3]">
+                    Playlist · 128 bài hát
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md p-2 transition hover:bg-[#1a1a1a]"
+              >
+                <img
+                  class="h-12 w-12 rounded object-cover"
+                  src="https://picsum.photos/seed/lib2/96/96"
+                  alt=""
+                />
+                <div class="min-w-0">
+                  <p class="truncate font-medium">Chill cuối tuần</p>
+                  <p class="truncate text-sm text-[#b3b3b3]">Playlist · Bạn</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md p-2 transition hover:bg-[#1a1a1a]"
+              >
+                <img
+                  class="h-12 w-12 rounded-full object-cover"
+                  src="https://picsum.photos/seed/lib3/96/96"
+                  alt=""
+                />
+                <div class="min-w-0">
+                  <p class="truncate font-medium">Lunar Echo</p>
+                  <p class="truncate text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md p-2 transition hover:bg-[#1a1a1a]"
+              >
+                <img
+                  class="h-12 w-12 rounded object-cover"
+                  src="https://picsum.photos/seed/lib4/96/96"
+                  alt=""
+                />
+                <div class="min-w-0">
+                  <p class="truncate font-medium">Midnight Drive</p>
+                  <p class="truncate text-sm text-[#b3b3b3]">
+                    Album · Lunar Echo
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md p-2 transition hover:bg-[#1a1a1a]"
+              >
+                <img
+                  class="h-12 w-12 rounded object-cover"
+                  src="https://picsum.photos/seed/lib5/96/96"
+                  alt=""
+                />
+                <div class="min-w-0">
+                  <p class="truncate font-medium">Tập trung học bài</p>
+                  <p class="truncate text-sm text-[#b3b3b3]">Playlist · Bạn</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- ================= MAIN ================= -->
+      <main
+        class="min-h-0 overflow-y-auto rounded-lg bg-gradient-to-b from-[#3a2a5e] via-[#121212] via-[320px] to-[#121212] [scrollbar-width:thin] [scrollbar-color:#555_transparent]"
+      >
+        <div class="px-6 py-6">
+          <!-- Filter chips -->
+          <div class="mb-5 flex gap-2 text-sm font-medium">
+            <button class="rounded-full bg-white px-4 py-1.5 text-black">
+              Tất cả
+            </button>
+            <button
+              class="rounded-full bg-white/10 px-4 py-1.5 transition hover:bg-white/20"
+            >
+              Nhạc
+            </button>
+            <button
+              class="rounded-full bg-white/10 px-4 py-1.5 transition hover:bg-white/20"
+            >
+              Podcast
+            </button>
+          </div>
+
+          <!-- Quick access -->
+          <section
+            class="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3"
+          >
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q1/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Bài hát đã thích</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q2/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Chill cuối tuần</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q3/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Midnight Drive</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q4/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Tập trung học bài</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q5/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Nhạc lái xe đêm</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              href="#"
+              class="group flex items-center gap-3 overflow-hidden rounded bg-white/10 pr-3 transition hover:bg-white/20"
+            >
+              <img
+                class="h-14 w-14 object-cover"
+                src="https://picsum.photos/seed/q6/112/112"
+                alt=""
+              />
+              <span class="flex-1 truncate font-bold">Khám phá hàng tuần</span>
+              <span
+                class="grid h-10 w-10 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                ><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+          </section>
+
+          <!-- Shelf: Bài hát từ API -->
+          <section class="mb-10">
+            <div class="mb-3 flex items-end justify-between">
+              <h2 class="text-2xl font-bold tracking-tight">
+                Bài hát nổi bật
+              </h2>
+            </div>
+            <div
+              id="track-list"
+              class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+              aria-live="polite"
+            ></div>
+          </section>
+
+          <!-- Shelf: Playlist nổi bật -->
+          <section class="mb-10">
+            <div class="mb-3 flex items-end justify-between">
+              <h2 class="text-2xl font-bold tracking-tight hover:underline">
+                Playlist nổi bật
+              </h2>
+              <a
+                href="#"
+                class="text-sm font-bold text-[#b3b3b3] hover:underline"
+                >Hiện tất cả</a
+              >
+            </div>
+            <div
+              class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+            >
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p1/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Nhạc hot hôm nay</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Những bài hát được nghe nhiều nhất.
+                </p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p2/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Acoustic buổi sáng</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Giai điệu nhẹ nhàng cho ngày mới.
+                </p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p3/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Workout năng lượng</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Nhịp nhanh để bạn bứt phá.
+                </p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p4/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Lo-fi thư giãn</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Beat chậm cho giờ học và làm việc.
+                </p>
+              </a>
+              <a
+                href="#"
+                class="group hidden rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828] 2xl:block"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p5/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Indie mới nổi</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Những giọng ca độc lập đáng nghe.
+                </p>
+              </a>
+              <a
+                href="#"
+                class="group hidden rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828] 2xl:block"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-md object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/p6/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Jazz quán cà phê</h3>
+                <p class="line-clamp-2 text-sm text-[#b3b3b3]">
+                  Không khí ấm áp cho buổi chiều.
+                </p>
+              </a>
+            </div>
+          </section>
+
+          <!-- Shelf: Nghệ sĩ phổ biến -->
+          <section class="mb-6">
+            <div class="mb-3 flex items-end justify-between">
+              <h2 class="text-2xl font-bold tracking-tight hover:underline">
+                Nghệ sĩ phổ biến
+              </h2>
+              <a
+                href="#"
+                class="text-sm font-bold text-[#b3b3b3] hover:underline"
+                >Hiện tất cả</a
+              >
+            </div>
+            <div
+              class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+            >
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a1/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Lunar Echo</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a2/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Violet Hour</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a3/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Neon Harbor</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+              <a
+                href="#"
+                class="group rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828]"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a4/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Paper Lanterns</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+              <a
+                href="#"
+                class="group hidden rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828] 2xl:block"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a5/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Amber Coast</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+              <a
+                href="#"
+                class="group hidden rounded-lg bg-[#181818] p-3 transition hover:bg-[#282828] 2xl:block"
+              >
+                <div class="relative mb-3">
+                  <img
+                    class="aspect-square w-full rounded-full object-cover shadow-lg shadow-black/40"
+                    src="https://picsum.photos/seed/a6/300/300"
+                    alt=""
+                  />
+                  <span
+                    class="absolute bottom-2 right-2 grid h-12 w-12 translate-y-2 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                    ><svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" /></svg
+                  ></span>
+                </div>
+                <h3 class="truncate font-bold">Sora</h3>
+                <p class="text-sm text-[#b3b3b3]">Nghệ sĩ</p>
+              </a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- ================= PLAYER BAR ================= -->
+      <footer
+        class="col-span-full grid h-[72px] grid-cols-[1fr_auto] items-center gap-4 px-2 md:grid-cols-[1fr_2fr_1fr]"
+      >
+        <!-- Bài đang phát -->
+        <div class="flex min-w-0 items-center gap-3">
+          <img
+            id="player-cover"
+            class="h-14 w-14 rounded object-cover"
+            src="https://picsum.photos/seed/now/112/112"
+            alt=""
+          />
+          <div class="min-w-0">
+            <p id="player-title" class="truncate text-sm font-medium hover:underline">
+              Midnight Drive
+            </p>
+            <p id="player-artist" class="truncate text-xs text-[#b3b3b3] hover:underline">
+              Lunar Echo
+            </p>
+          </div>
+          <button
+            class="hidden text-[#b3b3b3] transition hover:text-white sm:block"
+            aria-label="Thích"
+          >
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Điều khiển -->
+        <div class="flex flex-col items-center gap-1.5">
+          <div class="flex items-center gap-5 text-[#b3b3b3]">
+            <button
+              class="hidden transition hover:text-white sm:block"
+              aria-label="Ngẫu nhiên"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+              </svg>
+            </button>
+            <button id="prevBtn" class="transition hover:text-white" aria-label="Bài trước">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 5h2v14H6zM20 5v14L9 12z" />
+              </svg>
+            </button>
+            <button
+              id="playBtn"
+              class="grid h-8 w-8 place-items-center rounded-full bg-white text-black transition hover:scale-105"
+              aria-label="Phát"
+            >
+              <svg
+                id="iconPlay"
+                class="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <svg
+                id="iconPause"
+                class="hidden h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 5h4v14H7zM13 5h4v14h-4z" />
+              </svg>
+            </button>
+            <button id="nextBtn" class="transition hover:text-white" aria-label="Bài tiếp">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 5h2v14h-2zM4 5v14l11-7z" />
+              </svg>
+            </button>
+            <button
+              class="hidden transition hover:text-white sm:block"
+              aria-label="Lặp lại"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="hidden w-full max-w-[560px] items-center gap-2 text-[0.7rem] text-[#b3b3b3] md:flex"
+          >
+            <span id="time-current">0:00</span>
+            <div
+              id="progress-bar"
+              class="group h-1 flex-1 cursor-pointer rounded-full bg-[#4d4d4d]"
+            >
+              <div
+                id="progress-fill"
+                class="relative h-full w-0 rounded-full bg-white group-hover:bg-[#1ed760]"
+              >
+                <span
+                  class="absolute -right-1.5 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-white group-hover:block"
+                ></span>
+              </div>
+            </div>
+            <span id="time-total">0:00</span>
+          </div>
+        </div>
+
+        <!-- Âm lượng -->
+        <div
+          class="hidden items-center justify-end gap-2 text-[#b3b3b3] md:flex"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 9v6h4l5 5V4L8 9H4z" />
+            <path
+              d="M16 8a5 5 0 0 1 0 8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="group h-1 w-24 cursor-pointer rounded-full bg-[#4d4d4d]">
+            <div
+              class="h-full w-2/3 rounded-full bg-white group-hover:bg-[#1ed760]"
+            ></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <audio id="audio-player" preload="none"></audio>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

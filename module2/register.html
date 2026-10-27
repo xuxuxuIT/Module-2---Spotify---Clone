@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký — MusicApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body
+    class="flex min-h-screen flex-col items-center bg-black font-['Inter',sans-serif] text-white"
+  >
+    <header class="mb-10 mt-10">
+      <img
+        src="./src/assets/favicon.png"
+        alt=""
+        width="40"
+        height="40"
+        class="translate-y-1 brightness-0 invert"
+      />
+    </header>
+
+    <main class="w-full max-w-[450px] px-6 pb-10">
+      <!-- Thanh tiến trình (hiện ở bước 2) -->
+      <div id="progress" class="mb-6 hidden">
+        <div class="h-1 w-full rounded-full bg-[#4d4d4d]">
+          <div class="h-full w-1/2 rounded-full bg-[#1ed760]"></div>
+        </div>
+        <button
+          id="backBtn"
+          type="button"
+          class="mt-4 flex items-center gap-3 text-left"
+        >
+          <svg
+            class="h-5 w-5 text-[#b3b3b3]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 5-7 7 7 7" />
+          </svg>
+          <span>
+            <span class="block text-sm text-[#b3b3b3]">Bước 2/2</span>
+            <span class="block text-sm font-bold">Tạo tài khoản</span>
+          </span>
+        </button>
+      </div>
+
+      <div
+        id="alertBox"
+        role="alert"
+        hidden
+        class="mb-4 rounded-md border border-[#f3727f]/50 bg-[#f3727f]/10 px-3.5 py-2.5 text-sm text-[#ffb0b8]"
+      ></div>
+
+      <!-- ============ BƯỚC 1: EMAIL ============ -->
+      <section id="step1">
+        <h1
+          class="mb-8 text-center text-[2.7rem] font-extrabold leading-[1.1] tracking-tighter"
+        >
+          Sign up to start listening
+        </h1>
+
+        <form id="emailForm" novalidate>
+          <label for="email" class="mb-2 block text-sm font-bold"
+            >Email address</label
+          >
+          <input
+            id="email"
+            type="email"
+            placeholder="name@domain.com"
+            autocomplete="email"
+            class="h-12 w-full rounded border border-[#727272] bg-black px-3.5 text-base text-white placeholder:text-[#a7a7a7] hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+          />
+          <p
+            id="emailError"
+            hidden
+            class="mt-2 flex items-center gap-2 text-sm text-[#f3727f]"
+          ></p>
+          <button
+            type="submit"
+            class="mt-6 h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black transition hover:scale-[1.02] hover:bg-[#3be477] active:scale-[0.99]"
+          >
+            Next
+          </button>
+        </form>
+
+        <div class="my-6 flex items-center gap-4 text-sm text-[#b3b3b3]">
+          <span class="h-px flex-1 bg-[#292929]"></span>or<span
+            class="h-px flex-1 bg-[#292929]"
+          ></span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="6.5" y="2.5" width="11" height="19" rx="2" />
+              <path d="M10 18.5h4" />
+            </svg>
+            Sign up with phone number
+          </button>
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="#4285F4"
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              />
+              <path
+                fill="#34A853"
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"
+              />
+              <path
+                fill="#EA4335"
+                d="M12 5.36c1.62 0 3.07.56 4.21 1.64l3.15-3.15A10.54 10.54 0 0 0 12 1a11 11 0 0 0-9.82 6.06L5.84 9.9C6.71 7.29 9.14 5.36 12 5.36z"
+              />
+            </svg>
+            Sign up with Google
+          </button>
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="#1877F2"
+                d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.900V12h3.400l-.5 3.500h-2.900v8.400A12 12 0 0 0 24 12z"
+              />
+            </svg>
+            Sign up with Facebook
+          </button>
+        </div>
+
+        <p class="mt-8 border-[#292929] pt-8 text-center">
+          Already have an account?
+        </p>
+        <a
+          href="/login.html"
+          class="block text-center font-medium text-white no-underline hover:text-[#1ed760]"
+        >
+          Log in
+        </a>
+      </section>
+
+      <!-- ============ BƯỚC 2: THÔNG TIN ============ -->
+      <section id="step2" hidden>
+        <h1
+          class="mb-2 text-[2rem] font-extrabold leading-tight tracking-tighter"
+        >
+          Tạo tài khoản của bạn
+        </h1>
+        <p class="mb-6 text-sm text-[#b3b3b3]">
+          Đăng ký với <strong id="emailShow" class="text-white"></strong>
+        </p>
+
+        <form id="signupForm" novalidate>
+          <div class="mb-5">
+            <label for="name" class="mb-2 block text-sm font-bold"
+              >Họ tên</label
+            >
+            <input
+              id="name"
+              type="text"
+              autocomplete="name"
+              class="h-12 w-full rounded border border-[#727272] bg-black px-3.5 text-base text-white hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+            />
+            <p id="nameError" hidden class="mt-2 text-sm text-[#f3727f]"></p>
+          </div>
+
+          <div class="mb-5">
+            <label for="password" class="mb-2 block text-sm font-bold"
+              >Mật khẩu</label
+            >
+            <div class="relative">
+              <input
+                id="password"
+                type="password"
+                autocomplete="new-password"
+                class="h-12 w-full rounded border border-[#727272] bg-black pl-3.5 pr-16 text-base text-white hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+              />
+              <button
+                type="button"
+                id="togglePw"
+                class="absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1.5 text-xs font-bold text-[#a7a7a7] hover:text-white"
+              >
+                Hiện
+              </button>
+            </div>
+            <p class="mt-2 text-xs text-[#b3b3b3]">
+              Mật khẩu phải có ít nhất 6 ký tự.
+            </p>
+            <p
+              id="passwordError"
+              hidden
+              class="mt-1 text-sm text-[#f3727f]"
+            ></p>
+          </div>
+
+          <div class="mb-5">
+            <label for="confirmPassword" class="mb-2 block text-sm font-bold"
+              >Nhập lại mật khẩu</label
+            >
+            <input
+              id="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              class="h-12 w-full rounded border border-[#727272] bg-black px-3.5 text-base text-white hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+            />
+            <p id="confirmError" hidden class="mt-2 text-sm text-[#f3727f]"></p>
+          </div>
+
+          <label
+            class="mb-6 flex cursor-pointer items-start gap-3 text-sm text-[#d0d0d0]"
+          >
+            <input
+              id="agree"
+              type="checkbox"
+              class="mt-0.5 h-4 w-4 shrink-0 accent-[#1ed760]"
+            />
+            <span
+              >Tôi đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư
+              của MusicApp.</span
+            >
+          </label>
+          <p
+            id="agreeError"
+            hidden
+            class="-mt-3 mb-4 text-sm text-[#f3727f]"
+          ></p>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black transition hover:scale-[1.02] hover:bg-[#3be477] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+          >
+            <span id="submitLabel">Đăng ký</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer
+      class="mt-auto w-full bg-black px-6 py-6 text-center text-[0.72rem] text-[#a7a7a7]"
+    >
+      This site is protected by reCAPTCHA and the Google <br />
+      <a
+        href="https://policies.google.com/privacy"
+        class="underline hover:text-white"
+        >Privacy Policy</a
+      >
+      and
+      <a
+        href="https://policies.google.com/terms"
+        class="underline hover:text-white"
+        >Terms of Service</a
+      >
+      apply.
+    </footer>
+
+    <script type="module">
+      import { API_BASE, saveAuthData, redirectIfLoggedIn } from "/src/api.js";
+
+      redirectIfLoggedIn();
+
+      const $ = (id) => document.getElementById(id);
+      const step1 = $("step1"),
+        step2 = $("step2"),
+        progress = $("progress"),
+        alertBox = $("alertBox");
+      const email = $("email"),
+        name = $("name"),
+        password = $("password"),
+        confirmPassword = $("confirmPassword"),
+        agree = $("agree");
+      const errs = {
+        email: $("emailError"),
+        name: $("nameError"),
+        password: $("passwordError"),
+        confirm: $("confirmError"),
+        agree: $("agreeError"),
+      };
+
+      const showAlert = (m) => {
+        alertBox.textContent = m;
+        alertBox.hidden = false;
+      };
+      const fail = (input, el, m) => {
+        input?.classList.add("is-invalid");
+        el.textContent = m;
+        el.hidden = false;
+        return false;
+      };
+      const reset = () => {
+        alertBox.hidden = true;
+        [email, name, password, confirmPassword].forEach((i) =>
+          i.classList.remove("is-invalid"),
+        );
+        Object.values(errs).forEach((e) => {
+          e.hidden = true;
+          e.textContent = "";
+        });
+      };
+      const goStep = (n) => {
+        step1.hidden = n !== 1;
+        step2.hidden = n !== 2;
+        progress.hidden = n !== 2;
+        reset();
+      };
+
+      // Bước 1 -> bước 2
+      $("emailForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        reset();
+        const v = email.value.trim();
+        if (!v) return fail(email, errs.email, "Bạn cần nhập email của mình.");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+          return fail(
+            email,
+            errs.email,
+            "Email này không hợp lệ. Hãy đảm bảo email có dạng example@email.com.",
+          );
+        $("emailShow").textContent = v;
+        goStep(2);
+      });
+      $("backBtn").addEventListener("click", () => goStep(1));
+
+      $("togglePw").addEventListener("click", (e) => {
+        const show = password.type === "password";
+        password.type = show ? "text" : "password";
+        e.currentTarget.textContent = show ? "Ẩn" : "Hiện";
+      });
+
+      document.querySelectorAll("[data-social]").forEach((b) =>
+        b.addEventListener("click", () => {
+          reset();
+          showAlert(
+            "Tính năng này chưa được hỗ trợ, vui lòng đăng ký bằng email.",
+          );
+        }),
+      );
+
+      // Gửi đăng ký
+      $("signupForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        reset();
+        let ok = true;
+        if (!name.value.trim())
+          ok = fail(name, errs.name, "Vui lòng nhập họ tên.");
+        if (password.value.length < 6)
+          ok = fail(
+            password,
+            errs.password,
+            "Mật khẩu phải có ít nhất 6 ký tự.",
+          );
+        if (confirmPassword.value !== password.value)
+          ok = fail(
+            confirmPassword,
+            errs.confirm,
+            "Mật khẩu nhập lại không khớp.",
+          );
+        if (!agree.checked)
+          ok = fail(
+            null,
+            errs.agree,
+            "Bạn cần đồng ý với điều khoản để tiếp tục.",
+          );
+        if (!ok) return;
+
+        const btn = $("submitBtn"),
+          label = $("submitLabel");
+        btn.disabled = true;
+        label.textContent = "Đang đăng ký...";
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: name.value.trim(),
+              email: email.value.trim(),
+              password: password.value,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            showAlert(data.message || "Đăng ký thất bại. Vui lòng thử lại.");
+            return;
+          }
+
+          if (data.access_token) {
+            saveAuthData(data);
+            location.href = "/index.html";
+            return;
+          }
+          location.href = "/login.html?registered=1";
+        } catch (err) {
+          console.error(err);
+          showAlert("Không thể kết nối tới máy chủ. Vui lòng thử lại sau.");
+        } finally {
+          btn.disabled = false;
+          label.textContent = "Đăng ký";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập — MusicApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body
+    class="flex min-h-screen flex-col items-center bg-black bg-[linear-gradient(#1f1f1f,#000_320px)] font-['Inter',sans-serif] text-white"
+  >
+    <header class="mb-6 mt-10">
+      <a href="/index.html" class="flex items-center gap-2">
+        <svg
+          class="h-10 w-10 text-white"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        ></svg>
+      </a>
+    </header>
+
+    <main
+      class="w-full max-w-[450px] rounded-lg bg-transparent px-6 pb-12 pt-4 sm:bg-black sm:px-12 sm:pt-10"
+    >
+      <div
+        id="alertBox"
+        role="alert"
+        hidden
+        class="mb-5 rounded-md border border-[#f3727f]/50 bg-[#f3727f]/10 px-3.5 py-2.5 text-sm text-[#ffb0b8]"
+      ></div>
+
+      <!-- ============ BƯỚC 1: EMAIL ============ -->
+      <section id="step1">
+        <h1
+          class="mb-8 text-center text-[2.6rem] font-extrabold leading-[1.1] tracking-tighter"
+        >
+          Welcome back
+        </h1>
+
+        <form id="emailForm" novalidate>
+          <label for="email" class="mb-2 block text-sm font-bold">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            autocomplete="email"
+            autofocus
+            class="h-12 w-full rounded border border-[#727272] bg-black px-3.5 text-base text-white placeholder:text-[#a7a7a7] hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+          />
+          <p id="emailError" hidden class="mt-2 text-sm text-[#f3727f]"></p>
+
+          <button
+            type="submit"
+            class="mt-6 h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black transition hover:scale-[1.02] hover:bg-[#3be477] active:scale-[0.99]"
+          >
+            Continue
+          </button>
+        </form>
+
+        <div class="my-6 flex items-center gap-4 text-sm text-[#b3b3b3]">
+          <span class="h-px flex-1 bg-[#292929]"></span>hoặc<span
+            class="h-px flex-1 bg-[#292929]"
+          ></span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="#EA4335"
+                d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8a6.1 6.1 0 0 1 0-12.2c1.9 0 3.1.8 3.8 1.5l2.6-2.5A9.8 9.8 0 0 0 12 2a10 10 0 1 0 0 20c5.8 0 9.6-4.1 9.6-9.8 0-.7-.1-1.2-.2-1.7H12z"
+              />
+            </svg>
+            Continue with Google
+          </button>
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="#1877F2"
+                d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.900V12h3.400l-.5 3.500h-2.900v8.400A12 12 0 0 0 24 12z"
+              />
+            </svg>
+            Continue with Facebook
+          </button>
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M16.4 12.6c0-2.300 1.900-3.400 2-3.500-1.100-1.600-2.800-1.800-3.400-1.800-1.400-.1-2.800.9-3.500.9-.7 0-1.900-.8-3.100-.8-1.600 0-3.100.9-3.900 2.400-1.700 2.900-.4 7.200 1.200 9.600.8 1.100 1.700 2.400 3 2.400 1.200-.1 1.600-.8 3.100-.8 1.400 0 1.800.8 3.100.8 1.300 0 2.100-1.200 2.900-2.300.9-1.300 1.300-2.600 1.300-2.700-.1 0-2.600-1-2.700-4.200zM14.100 5.600c.6-.8 1.100-1.900.9-3-1 0-2.100.6-2.800 1.400-.6.700-1.100 1.800-1 2.900 1.100.1 2.200-.5 2.900-1.300z"
+              />
+            </svg>
+            Continue with Apple
+          </button>
+          <button
+            type="button"
+            data-social
+            class="relative flex h-12 items-center justify-center rounded-full border border-[#727272] px-12 text-[0.95rem] font-bold transition hover:border-white active:scale-[0.98]"
+          >
+            <svg
+              class="absolute left-4 h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M6.600 10.800a15.100 15.100 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.25c1.100.37 2.300.57 3.600.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.300.2 2.500.57 3.600a1 1 0 0 1-.25 1l-2.200 2.200z"
+              />
+            </svg>
+            Continue with phone number
+          </button>
+        </div>
+
+        <p class="pt-8 text-center text-[0.95rem] text-[#b3b3b3]">
+          Don't have an account? <br />
+          <a
+            href="/register.html"
+            class="font-medium text-white hover:text-[#1ed760] no-underline"
+            >Sign up</a
+          >
+        </p>
+      </section>
+
+      <!-- ============ BƯỚC 2: MẬT KHẨU ============ -->
+      <section id="step2" hidden>
+        <button
+          id="backBtn"
+          type="button"
+          class="mb-6 flex items-center gap-2 text-sm font-bold text-[#b3b3b3] transition hover:text-white"
+        >
+          <svg
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 5-7 7 7 7" />
+          </svg>
+          Quay lại
+        </button>
+
+        <h1
+          class="mb-2 text-center text-[2rem] font-extrabold leading-tight tracking-tighter"
+        >
+          Nhập mật khẩu
+        </h1>
+        <p class="mb-8 text-center text-sm text-[#b3b3b3]">
+          Đăng nhập với
+          <strong id="emailShow" class="break-all text-white"></strong>
+        </p>
+
+        <form id="loginForm" novalidate>
+          <label for="password" class="mb-2 block text-sm font-bold"
+            >Mật khẩu</label
+          >
+          <div class="relative">
+            <input
+              id="password"
+              type="password"
+              placeholder="Mật khẩu"
+              autocomplete="current-password"
+              class="h-12 w-full rounded border border-[#727272] bg-black pl-3.5 pr-16 text-base text-white placeholder:text-[#a7a7a7] hover:border-white focus:border-white focus:outline-none focus:ring-1 focus:ring-white [&.is-invalid]:border-[#f3727f] [&.is-invalid]:ring-1 [&.is-invalid]:ring-[#f3727f]"
+            />
+            <button
+              type="button"
+              id="togglePw"
+              class="absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1.5 text-xs font-bold text-[#a7a7a7] hover:text-white"
+            >
+              Hiện
+            </button>
+          </div>
+          <p id="passwordError" hidden class="mt-2 text-sm text-[#f3727f]"></p>
+
+          <label class="mt-4 flex cursor-pointer items-center gap-3 text-sm">
+            <input
+              id="remember"
+              type="checkbox"
+              checked
+              class="h-4 w-4 accent-[#1ed760]"
+            />
+            Ghi nhớ tôi
+          </label>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="mt-6 h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black transition hover:scale-[1.02] hover:bg-[#3be477] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+          >
+            <span id="submitLabel">Đăng nhập</span>
+          </button>
+        </form>
+
+        <a
+          href="#"
+          class="mt-6 block text-center text-sm font-medium text-white underline hover:text-[#1ed760]"
+          >Quên mật khẩu?</a
+        >
+      </section>
+    </main>
+
+    <footer
+      class="mt-auto w-full bg-black px-6 py-6 text-center text-[0.72rem] text-[#a7a7a7]"
+    >
+      This site is protected by reCAPTCHA and the Google <br />
+      <a
+        href="https://policies.google.com/privacy"
+        class="underline hover:text-white"
+        >Privacy Policy</a
+      >
+      and
+      <a
+        href="https://policies.google.com/terms"
+        class="underline hover:text-white"
+        >Terms of Service</a
+      >
+      apply.
+    </footer>
+
+    <script type="module">
+      import { API_BASE, saveAuthData, redirectIfLoggedIn } from "/src/api.js";
+
+      redirectIfLoggedIn();
+
+      const $ = (id) => document.getElementById(id);
+      const step1 = $("step1"),
+        step2 = $("step2"),
+        alertBox = $("alertBox");
+      const email = $("email"),
+        password = $("password");
+      const emailError = $("emailError"),
+        passwordError = $("passwordError");
+
+      const showAlert = (m) => {
+        alertBox.textContent = m;
+        alertBox.hidden = false;
+      };
+      const fail = (input, el, m) => {
+        input.classList.add("is-invalid");
+        el.textContent = m;
+        el.hidden = false;
+      };
+      const reset = () => {
+        alertBox.hidden = true;
+        [email, password].forEach((i) => i.classList.remove("is-invalid"));
+        [emailError, passwordError].forEach((e) => {
+          e.hidden = true;
+          e.textContent = "";
+        });
+      };
+      const goStep = (n) => {
+        step1.hidden = n !== 1;
+        step2.hidden = n !== 2;
+        reset();
+        (n === 1 ? email : password).focus();
+      };
+
+      // Thông báo từ trang khác chuyển sang
+      const qs = new URLSearchParams(location.search);
+      if (qs.get("expired") === "1")
+        showAlert("Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại.");
+      if (qs.get("registered") === "1")
+        showAlert("Đăng ký thành công! Vui lòng đăng nhập.");
+
+      // Bước 1 -> bước 2
+      $("emailForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const wasAlert = !alertBox.hidden;
+        reset();
+        const v = email.value.trim();
+        if (!v) return fail(email, emailError, "Vui lòng nhập email của bạn.");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+          return fail(email, emailError, "Email không hợp lệ.");
+        $("emailShow").textContent = v;
+        goStep(2);
+      });
+
+      $("backBtn").addEventListener("click", () => goStep(1));
+
+      $("togglePw").addEventListener("click", (e) => {
+        const show = password.type === "password";
+        password.type = show ? "text" : "password";
+        e.currentTarget.textContent = show ? "Ẩn" : "Hiện";
+      });
+
+      document.querySelectorAll("[data-social]").forEach((b) =>
+        b.addEventListener("click", () => {
+          reset();
+          showAlert(
+            "Tính năng này chưa được hỗ trợ, vui lòng đăng nhập bằng email.",
+          );
+        }),
+      );
+
+      // Bước 2: gửi đăng nhập
+      $("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        reset();
+        if (!password.value)
+          return fail(password, passwordError, "Vui lòng nhập mật khẩu.");
+        if (password.value.length < 6)
+          return fail(
+            password,
+            passwordError,
+            "Mật khẩu phải có ít nhất 6 ký tự.",
+          );
+
+        const btn = $("submitBtn"),
+          label = $("submitLabel");
+        btn.disabled = true;
+        label.textContent = "Đang đăng nhập...";
+
+        try {
+          const res = await fetch(`${API_BASE}/api/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email.value.trim(),
+              password: password.value,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (!res.ok) {
+            showAlert(data.message || "Email hoặc mật khẩu không đúng.");
+            return;
+          }
+          saveAuthData(data);
+          location.href = "/index.html";
+        } catch (err) {
+          console.error(err);
+          showAlert("Không thể kết nối tới máy chủ. Vui lòng thử lại sau.");
+        } finally {
+          btn.disabled = false;
+          label.textContent = "Đăng nhập";
+        }
+      });
+    </script>
+  </body>
+</html>
